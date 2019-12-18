@@ -26,22 +26,21 @@
   <script src="umd.js"></script>
   <script>
     myFetch.init({
-      address: "https://pokeapi.co/api/v2/",
+      address: "https://reqres.in/api/",
       key: "1234"
     });
 
-    myFetch.get("pokemon/ditto/")
-      .then(result => {
-        $(".loading").toggle();
+    // METHOD GET
+    myFetch.get("users/")
+      .then(result => console.log(result));
 
-        console.log(result);
-
-        $(".pokemon__name").text(result.name);
-        $(".pokemon__image").attr("src", result.sprites.front_default);
-        for (const option of result.abilities) {
-          $(".pokemon__abilityList").append(`<li>${option.ability.name}</li>`)
-        }
-      });
+    // METHOD POST
+    myFetch.post("users", {
+        name: "Izzy",
+        role: "Student",
+        abilities: "Suffering"
+      })
+      .then(result => console.log(result));
   </script>
 
 </body>
