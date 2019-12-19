@@ -5,6 +5,4 @@ myFetch.init({
   key: "1234"
 });
 
-// METHOD GET
-myFetch.get("users/")
-  .then(result => console.log(result));
+myFetch.get("users")
