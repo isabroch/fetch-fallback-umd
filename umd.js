@@ -22,12 +22,18 @@
     return this;
   }
 
+  let fetchNode;
+
+  if (typeof exports === "object") {
+    fetchNode = require('node-fetch');
+  }
+
   async function get(resource) {
     try {
 
       // NODE METHOD GET
       if (typeof exports === "object") {
-        const fetchNode = require('node-fetch');
+        // const fetchNode = require('node-fetch');
 
         let response = await fetchNode(this.APIAddress + resource, {
           headers: {
@@ -51,20 +57,11 @@
 
       // XML METHOD GET
       else if (typeof XMLHttpRequest !== 'undefined') {
-        // Creates HTTP request template
         const xhttp = new XMLHttpRequest();
-
-        // What should the HTTP request do?
         xhttp.open("GET", this.APIAddress + resource, true);
-
-        // Sending authorization to API
         xhttp.setRequestHeader("Authorization", this.APIkey)
-
-        // Sends formatted HTTP request
         xhttp.send();
-
         return await new Promise(function (resolve, reject) {
-          // When response is ready, what to do with response?
           xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
               resolve(JSON.parse(xhttp.responseText));
