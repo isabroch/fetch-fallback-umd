@@ -45,7 +45,7 @@
       }
 
       // FETCH METHOD GET
-      else if (typeof fetch !== 'undefined') {
+      else if (typeof fetch === 'function') {
         let response = await fetch(this.APIAddress + resource, {
           headers: {
             "Authorization": this.APIKey
@@ -77,8 +77,23 @@
 
   async function post(resource, data) {
     try {
+
+      // NODE METHOD GET
+      if (typeof exports === "object") {
+        let response = await fetchNode(this.APIAddress + resource, {
+          headers: {
+            "Authorization": this.APIKey,
+            "Content-Type": "application/json"
+          },
+          method: "POST",
+          body: JSON.stringify(data)
+        })
+
+        return await response.json()
+      }
+
       // FETCH METHOD POST
-      if (typeof fetch !== 'undefined') {
+      if (typeof fetch === 'function') {
         let response = await fetch(this.APIAddress + resource, {
           headers: {
             "Authorization": this.APIKey,
@@ -93,17 +108,11 @@
 
       // XML METHOD POST
       else if (typeof XMLHttpRequest !== 'undefined') {
-        // Creates HTTP request template
         const xhttp = new XMLHttpRequest();
-
-        // What should the HTTP request do?
         xhttp.open("POST", this.APIAddress + resource, true);
-
-        // Sends formatted HTTP request
+        xhttp.setRequestHeader("Authorization", this.APIkey)
         xhttp.send();
-
         return await new Promise(function (resolve, reject) {
-          // When response is ready, what to do with response?
           xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
               resolve(JSON.parse(xhttp.responseText));
@@ -111,7 +120,6 @@
           };
         })
       }
-
 
     } catch (error) {
       throw error;
