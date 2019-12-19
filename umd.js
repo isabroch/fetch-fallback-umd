@@ -27,29 +27,15 @@
 
       // NODE METHOD GET
       if (typeof exports === "object") {
-        const httpsNode = require('https');
+        const fetchNode = require('node-fetch');
 
-        const options = {
-          method: 'GET',
+        let response = await fetchNode(this.APIAddress + resource, {
           headers: {
             "Authorization": this.APIKey
           }
-        }
-
-        const req = httpsNode.request(this.APIAddress + resource, options, async(response) => {
-          response.setEncoding('utf8');
-
-          let rawData = '';
-
-          response.on('data', (chunk) => { rawData += chunk; });
-          response.on('end', () => { console.log(JSON.parse(rawData)); });
-        });
-
-        req.on('error', (err) => {
-          console.error(err);
         })
 
-        req.end();
+        return await response.json()
       }
 
       // FETCH METHOD GET
