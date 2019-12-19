@@ -110,8 +110,9 @@
       else if (typeof XMLHttpRequest !== 'undefined') {
         const xhttp = new XMLHttpRequest();
         xhttp.open("POST", this.APIAddress + resource, true);
+        xhttp.setRequestHeader("Content-Type", "application/json")
         xhttp.setRequestHeader("Authorization", this.APIkey)
-        xhttp.send();
+        xhttp.send(JSON.stringify(data));
         return await new Promise(function (resolve, reject) {
           xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
