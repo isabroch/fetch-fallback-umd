@@ -2,7 +2,7 @@
 
   // AMD
   if (typeof define === "function" && define.amd) {
-    define(["jequery"], factory);
+    define(["jquery"], factory);
   }
   // CommonJS
   else if (typeof exports === "object") {
@@ -10,7 +10,7 @@
   }
   // Browser Context
   else {
-    root.myFetch = factory(root.jquery);
+    root.xfetch = factory(root.jquery);
   }
 
 }(this, function ($) {
