@@ -28,7 +28,7 @@
     fetchNode = require('node-fetch');
   }
 
-  async function get(resource) {
+  async function get(resource = "") {
     try {
 
       // NODE METHOD GET
@@ -78,7 +78,7 @@
     }
   }
 
-  async function post(resource, data) {
+  async function post(resource = "", data) {
     try {
 
       // NODE METHOD POST
@@ -131,7 +131,7 @@
     }
   }
 
-  async function put(resource, data) {
+  async function put(resource = "", data) {
     try {
 
       // NODE METHOD PUT
@@ -184,7 +184,7 @@
     }
   }
 
-  async function del(resource) {
+  async function del(resource = "") {
     try {
 
       // NODE METHOD DELETE

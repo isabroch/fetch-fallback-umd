@@ -15,7 +15,7 @@ const xfetch = require("@isabroch/fetch-fallback");
 ### Browser
 Add the script before other scripts in your HTML
 ```html
-<script src="https://unpkg.com/@isabroch/fetch-fallback@1.1.1/umd.js"></script>
+<script src="https://unpkg.com/@isabroch/fetch-fallback@1.1.2/umd.js"></script>
 ```
 
 ## Initializing
@@ -31,10 +31,10 @@ xfetch.init({
 ## Functionality
 Available functions include: `get()`, `post()`, `put()`, `del()`
 
-**resource** is what you want from the API. For example, if you're trying to access `https://reqres.in/api/users/`, resource would be `users`\
+**resource** is what you want from the API. For example, if you're trying to access `https://reqres.in/api/users/`, resource would be `users`. Not providing resource defaults to trying to access just apiLink.\
 **input** is specific to `post()` and `put()`. When creating/updating content, input is the new content to be pushed to the API.\
 **result** is the response from the API as parsed JSON, usually an object or array.\
-In the case of `del()`, **result** returns the status code - i.e. `204`.\
+In the case of `del()`, **result** returns the status code - i.e. `204`.
 
 Fetch Fallback is an async function, so accessing results should be done either via async/await or .then() or Promises.
 
