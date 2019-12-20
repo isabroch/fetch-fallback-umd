@@ -7,12 +7,20 @@ npm i @isabroch/fetch-fallback
 ```
 
 ## Usage
+If in node.js
+```js
+const xfetch = require("@isabroch/fetch-fallback");
+```
+
+If in browser, link this script before your other scripts
+```html
+<script src="https://unpkg.com/@isabroch/fetch-fallback/umd.js"></script>
+```
+
 Initialize fetch functionality.\
 **apiLink** should be the base URL of the API you are trying to access. For example: `https://reqres.in/api/`\
 **apiAuth** should be the key used to access the API, if there is one.
 ```js
-const xfetch = require("@isabroch/fetch-fallback");
-
 xfetch.init({
   address: apiLink,
   key: apiAuth
@@ -21,7 +29,7 @@ xfetch.init({
 
 Available functions include: `get()`, `post()`, `put()`, `del()`
 
-**resource** is what you want from the API. For example, if you're trying to access `"https://reqres.in/api/users/`, resource would be `users`\
+**resource** is what you want from the API. For example, if you're trying to access `https://reqres.in/api/users/`, resource would be `users`\
 **input** is specific to `post()` and `put()`. When creating/updating content, input is the new content to be pushed to the API.
 
 **result** is the response from the API as parsed JSON, usually an object or array.\
