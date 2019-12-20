@@ -15,7 +15,7 @@ const xfetch = require("@isabroch/fetch-fallback");
 ### Browser
 Add the script before other scripts in your HTML
 ```html
-<script src="https://unpkg.com/@isabroch/fetch-fallback@1.0.2/umd.js"></script>
+<script src="https://unpkg.com/@isabroch/fetch-fallback@1.0.3/umd.js"></script>
 ```
 
 ## Initializing
