@@ -1,5 +1,5 @@
 # Fetch (Fallback)
-Fetch functionality with fallbacks for node.js environments and environments that don't support fetch but support XMLHttpRequest.
+Fetch functionality with fallbacks for node.js environments and environments that don't support fetch but support XMLHttpRequest. Only accepts JSON responses from API.
 
 ## Installation
 ```bash

@@ -37,7 +37,8 @@
 
         let response = await fetchNode(this.APIAddress + resource, {
           headers: {
-            "Authorization": this.APIKey
+            "Authorization": this.APIKey,
+            "Accept": "application/json"
           }
         })
 
@@ -48,7 +49,8 @@
       else if (typeof fetch === 'function') {
         let response = await fetch(this.APIAddress + resource, {
           headers: {
-            "Authorization": this.APIKey
+            "Authorization": this.APIKey,
+            "Accept": "application/json"
           }
         });
 
@@ -59,7 +61,8 @@
       else if (typeof XMLHttpRequest !== 'undefined') {
         const xhttp = new XMLHttpRequest();
         xhttp.open("GET", this.APIAddress + resource, true);
-        xhttp.setRequestHeader("Authorization", this.APIkey)
+        xhttp.setRequestHeader("Authorization", this.APIkey);
+        xhttp.setRequestHeader("Accept", "application/json")
         xhttp.send();
         return await new Promise(function (resolve, reject) {
           xhttp.onreadystatechange = function () {
@@ -111,7 +114,8 @@
         const xhttp = new XMLHttpRequest();
         xhttp.open("POST", this.APIAddress + resource, true);
         xhttp.setRequestHeader("Content-Type", "application/json")
-        xhttp.setRequestHeader("Authorization", this.APIkey)
+        xhttp.setRequestHeader("Authorization", this.APIkey);
+        xhttp.setRequestHeader("Accept", "application/json")
         xhttp.send(JSON.stringify(data));
         return await new Promise(function (resolve, reject) {
           xhttp.onreadystatechange = function () {
@@ -163,7 +167,8 @@
         const xhttp = new XMLHttpRequest();
         xhttp.open("PUT", this.APIAddress + resource, true);
         xhttp.setRequestHeader("Content-Type", "application/json")
-        xhttp.setRequestHeader("Authorization", this.APIkey)
+        xhttp.setRequestHeader("Authorization", this.APIkey);
+        xhttp.setRequestHeader("Accept", "application/json")
         xhttp.send(JSON.stringify(data));
         return await new Promise(function (resolve, reject) {
           xhttp.onreadystatechange = function () {
@@ -210,7 +215,8 @@
       else if (typeof XMLHttpRequest !== 'undefined') {
         const xhttp = new XMLHttpRequest();
         xhttp.open("DELETE", this.APIAddress + resource, true);
-        xhttp.setRequestHeader("Authorization", this.APIkey)
+        xhttp.setRequestHeader("Authorization", this.APIkey);
+        xhttp.setRequestHeader("Accept", "application/json")
         xhttp.send();
         return await new Promise(function (resolve, reject) {
           xhttp.onreadystatechange = function () {
