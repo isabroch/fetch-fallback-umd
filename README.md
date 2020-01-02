@@ -9,13 +9,15 @@ npm i @isabroch/fetch-fallback
 
 ### Web
 Add the script before other scripts in your HTML to get the latest version.
-If you need any other version, change `1.1.4` to the relevant version number.
+
+If you need an earlier version, change `1.1.5` to the relevant version number.
 ```html
-<script src="https://unpkg.com/@isabroch/fetch-fallback@1.1.4/umd.js"></script>
+<script src="https://unpkg.com/@isabroch/fetch-fallback@1.1.5/umd.js"></script>
 ```
 
 ## Usage
 **If you're using Node.js**
+
 The following code works in all environments - so you do not have to write. If you are using _only_ Node.js, the if wrapper is not necessary.
 ```js
 if (typeof exports === "object") {
@@ -24,7 +26,8 @@ if (typeof exports === "object") {
 ```
 
 ### Initializing
-**apiLink** should be the base URL of the API you are trying to access. For example: `https://reqres.in/api/`\
+**apiLink** should be the base URL of the API you are trying to access. For example: `https://reqres.in/api/`
+
 **apiAuth** should be the key used to access the API, if there is one.
 ```js
 xfetch.init({
@@ -36,9 +39,12 @@ xfetch.init({
 ### Functionality
 Available functions include: `get()`, `post()`, `put()`, `del()`
 
-**resource** is what you want from the API. For example, if you're trying to access `https://reqres.in/api/users/`, resource would be `users`. Not providing resource defaults to trying to access just apiLink.\
-**input** is specific to `post()` and `put()`. When creating/updating content, input is the new content to be pushed to the API.\
-**result** is the response from the API as parsed JSON, usually an object or array.\
+**resource** is what you want from the API. For example, if you're trying to access `https://reqres.in/api/users/`, resource would be `users`. Not providing resource defaults to trying to access just apiLink.
+
+**input** is specific to `post()` and `put()`. When creating/updating content, input is the new content to be pushed to the API.
+
+**result** is the response from the API as parsed JSON, usually an object or array.
+
 In the case of `del()`, **result** returns the status code - i.e. `204`.
 
 Fetch Fallback is an async function, so accessing results should be done either via async/await or .then() or Promises.
