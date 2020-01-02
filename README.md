@@ -9,13 +9,13 @@ npm i @isabroch/fetch-fallback
 
 ### Web
 Add the script before other scripts in your HTML to get the latest version.
-If you need any other version, change `1.1.3` to the relevant version number.
+If you need any other version, change `1.1.4` to the relevant version number.
 ```html
-<script src="https://unpkg.com/@isabroch/fetch-fallback@1.1.3/umd.js"></script>
+<script src="https://unpkg.com/@isabroch/fetch-fallback@1.1.4/umd.js"></script>
 ```
 
 ## Usage
-### Node.js
+**If you're using Node.js**
 The following code works in all environments - so you do not have to write. If you are using _only_ Node.js, the if wrapper is not necessary.
 ```js
 if (typeof exports === "object") {
@@ -57,7 +57,7 @@ xfetch.del(resource)
 .then(result => console.log(result))
 ```
 
-## Testing with Reqres
+### Testing with Reqres
 [Reqres] is a free REST-API great for testing functionality!\
 You can run the code below to test if Fetch Fallback is working properly.
 ```js
@@ -102,3 +102,12 @@ xfetch.del("users/2")
 /* EXPECTED CONSOLE LOG:
   204 */
 ```
+
+## Need Help?
+Create an issue at https://github.com/isabroch/fetch-fallback-umd/issues, this project's issue tracker! Please include the following details when creating an issue:
+- Context of the error; what are you trying to achieve?
+- Error message you are receiving
+- Environment you are running Fetch (Fallback) in
+
+## License
+Fetch (Fallback) uses [MIT License](https://choosealicense.com/licenses/mit/).
